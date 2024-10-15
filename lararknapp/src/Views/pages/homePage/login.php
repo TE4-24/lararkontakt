@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>login</title>
-        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="/css/login.css">
     </head>
 
     <body>
@@ -15,7 +15,7 @@
                 fullInput.push(input);
                 if (fullInput.length === 9){
                     let sendInput = new XMLHttpRequest();
-                    sendInput.open('POST', 'process.php', true);
+                    sendInput.open('POST', '/scripts/process.php', true);
                     sendInput.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
                     sendInput.onreadystatechange = function() {

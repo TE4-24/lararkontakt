@@ -29,7 +29,7 @@
       
         
         if ($_SESSION['lastName'] != null && $_SESSION['firstName'] != null) {
-            echo json_encode(['status' => 'success', 'redirect' => 'main.php']);
+            echo json_encode(['status' => 'success', 'redirect' => 'teachers']);
         }
         else {
             echo json_encode(['status' => 'error', 'message' => 'Försök igen']);

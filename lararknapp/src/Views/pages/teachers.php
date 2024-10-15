@@ -10,14 +10,16 @@
   <body>
     <div class="banner">
       <img class="banner-img" src="/bilder/Asset 1Iris_symbol.svg">
-        <p>tjenare [insert name here] klicka på den lärare vars schema du vill ha.</p>     
+        <p><?php
+            session_start();
+            echo "hej, ". htmlspecialchars($_SESSION['firstName']). " ". htmlspecialchars($_SESSION['lastName']);
+        ?></p>     
     </div>
       
       
       
     <div class="bildlada">
       <?php
-        session_start();
         if (!isset($_SESSION['index'])) {
             $_SESSION['index'] = 0;
         }

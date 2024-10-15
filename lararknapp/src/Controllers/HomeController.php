@@ -9,6 +9,6 @@ class HomeController extends Controller
 {
     public function homePage()
     {
-        $this->render('homePage/index');
+        $this->render('homePage/login');
     } 
 }
