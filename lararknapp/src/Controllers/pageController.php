@@ -7,21 +7,9 @@ use App\Controller;
 class pageController extends Controller
 {
 
-    public  function pageOne()
+    public  function teachers()
     {
-        $this->render('pageOne/index');
+        $this->render('teachers');
     }
 
-
-    public function pageTwo()
-    {
-
-        $this->render('pageTwo/index');
-    }
-
-    public function pageThree()
-    {
-
-        $this->render('pageThree/index');
-    }
 }
