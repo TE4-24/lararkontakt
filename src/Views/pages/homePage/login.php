@@ -20,6 +20,7 @@
 
                     sendInput.onreadystatechange = function() {
                         if (sendInput.readyState === XMLHttpRequest.DONE && sendInput.status === 200) {
+                            console.log(sendInput.responseText);
                             let jsonResponse = JSON.parse(sendInput.responseText)
                             if (jsonResponse.status === 'success') {
                                 window.location.href = jsonResponse.redirect;

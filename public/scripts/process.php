@@ -32,7 +32,7 @@
             echo json_encode(['status' => 'success', 'redirect' => 'teachers']);
         }
         else {
-            echo json_encode(['status' => 'error', 'message' => 'Försök igen']);
+            echo json_encode(['status' => 'error', 'message' => 'Prova igen']);
         }
     }
 ?>
