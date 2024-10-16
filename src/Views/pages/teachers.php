@@ -47,7 +47,7 @@
         }
 
         foreach ($teachers as $index => $teacher) {
-            $teacherImage = "/bilder/" . $teacher . ".jpg";
+            $teacherImage = "/bilder/" . $teacher . ".png";
             echo "<button class='button' id='$teacher' type='button'>
                     <img class='lararbild' src='$teacherImage' alt='Button Image'>
                   </button>";

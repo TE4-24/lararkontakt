@@ -61,6 +61,12 @@ body {
   margin: 1vw;
   border-radius: 50%;
 }
+
+#right,
+#left {
+  background: transparent;
+  border: none;
+}
 /* ropar på den sjunde knappen med hjälp av dens index i array:en */
 
 @media only screen and (orientation: portrait) {
