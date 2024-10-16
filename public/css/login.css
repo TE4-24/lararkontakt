@@ -8,21 +8,24 @@ body {
 
 #loginMsg {
   font-family: fantasy;
-  font-size: 50px;
+  font-size: 7.5vh;
+  line-height: 7.5vh;
   font-weight: bold;
   padding: 1%;
-  top: 50%;
+  top: 42.5vh;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: #FFDB58;
   border-radius: 20px;
 }
 
 .logo-container {
-  height: 10%;
-  width: 100%;
-  margin: 1.5%;
+  position: absolute;
+  left: 0%;
 }
 
 .logo {
+  top: 2vh;
+  left: 1.5vw;
+  position: absolute;
   height: 100px;
 }

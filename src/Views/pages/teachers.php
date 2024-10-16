@@ -9,7 +9,7 @@
     
   <body>
     <div class="banner">
-      <img class="banner-img" src="/bilder/Asset 1Iris_symbol.svg">
+      <img class="banner-img" src="/bilder/Iris_logo.svg">
         <p><?php
             session_start();
             echo "hej, ". htmlspecialchars($_SESSION['firstName']). " ". htmlspecialchars($_SESSION['lastName']);
