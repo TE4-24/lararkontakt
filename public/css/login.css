@@ -1,12 +1,28 @@
-body{
-    background-color: antiquewhite;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
-#loginMsg{
-    font-size: 24px;
-    top: 50%;
-    position: absolute;
+#loginMsg {
+  font-family: fantasy;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 1%;
+  top: 50%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.295);
+  border-radius: 20px;
+}
+
+.logo-container {
+  height: 10%;
+  width: 100%;
+  margin: 1.5%;
+}
+
+.logo {
+  height: 100px;
 }

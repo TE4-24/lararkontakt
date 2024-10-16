@@ -6,6 +6,8 @@
     </head>
 
     <body>
+        <div class="logo-container"><img src="/bilder/Asset 1Iris_symbol.svg" class="logo"></div>
+        
         <div id="loginMsg">Skanna din tagg för att logga in</div>
 
         <script>
