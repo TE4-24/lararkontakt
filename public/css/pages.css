@@ -1,6 +1,6 @@
 body {
   justify-content: center;
-  background-image: linear-gradient(#eedc74, cornsilk);
+  background-image: linear-gradient(0.15turn, #9100d4, #bd25b0);
   background-attachment: fixed;
   margin: 0;
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .bildlada {
-  background-color: #f44;
+  background-color: #ddd;
 
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
