@@ -29,13 +29,13 @@
 
         if ($umbrella[$_SESSION['index']] == 1) {
             $teachers = array(
-                "mickael", "lars", "marcus", "pooya", 
-                "robert", "robin", "toshihide", "right"
+                "MJ", "LJ", "MB", "PM", 
+                "RS", "RG", "TS", "right"
             );
         } 
         elseif ($umbrella[$_SESSION['index']] == 2) {
             $teachers = array(
-                "edvard", "jonn", "ann-kristin", "maria",
+                "EM", "JB", "AL", "maria",
                 "left", "mans", "tyra", "right"
             );
         } 
