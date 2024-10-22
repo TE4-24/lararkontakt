@@ -48,7 +48,7 @@
 
         foreach ($teachers as $index => $teacher) {
             $teacherImage = "/bilder/" . $teacher . ".png";
-            echo "<button class='button' id='$teacher' type='button'>
+            echo "<button class='button' id='$teacher' id='modalButton' type='button'>
                     <img class='lararbild' src='$teacherImage' alt='Button Image'>
                   </button>";
         }
@@ -56,13 +56,14 @@
     
       </div>
       
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close"></span>
+          <p id="lararschem">placeholder</p>
+        </div>
+      </div>
 
-      <style>
-        #button-7 {
-        background: transparent;
-        border: none;
-        }
-      </style>
+      
       <script src="/scripts/teacherButtons.js"></script>
     </body>
   </html>
