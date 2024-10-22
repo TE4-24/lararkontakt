@@ -35,8 +35,8 @@
         } 
         elseif ($umbrella[$_SESSION['index']] == 2) {
             $teachers = array(
-                "EM", "JB", "AL", "maria",
-                "left", "mans", "tyra", "right"
+                "EM", "JB", "AKL", "MHG",
+                "left", "MR", "TB", "right"
             );
         } 
         elseif ($umbrella[$_SESSION['index']] == 3) {
