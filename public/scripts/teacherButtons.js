@@ -42,16 +42,24 @@ function historyBack() {
 }
 
 function buttonClick(index) {
-  const buttons = document.querySelectorAll(".button");
+    const buttons = document.querySelectorAll(".button");
 
-  if (buttons[index].id === "left") {
-      updateIndex("left");
-  } 
-  else if (buttons[index].id === "right") {
-      updateIndex("right");
-  } 
-  else {
-      alert(buttons[index].id);
+    if (buttons[index].id === "left") {
+        updateIndex("left");
+    } 
+    else if (buttons[index].id === "right") {
+        updateIndex("right");
+    } 
+    else {
+        const teacher = buttons[index].id;
+        const dayOfWeek = new Date().getDay() - 1;
+        const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        fetch(`/fetch_schedule?selectedTeacher=${teacher}&dayOfWeek=${dayOfWeek}&currentTime=${currentTime}`)
+        .then(response => response.text())
+        .then(data => {
+            alert(data);  
+        })
   }
 }
 
