@@ -9,8 +9,9 @@ class ScheduleController
         $selectedTeacher = $_GET['selectedTeacher'] ?? 'default_teacher';
         $dayOfWeek = $_GET['dayOfWeek'] ?? (date("w") - 1);
         $currentTime = $_GET['currentTime'] ?? date("H:i");
+        $fullSchedule = $_GET['fullSchedule'];
 
-        $schedule = $this->getSchedule($selectedTeacher, $dayOfWeek, $currentTime);
+        $schedule = $this->getSchedule($selectedTeacher, $dayOfWeek, $currentTime, $fullSchedule);
         if ($schedule != ""){
             echo $schedule;
         }
@@ -18,7 +19,7 @@ class ScheduleController
         
     }
 
-    private function getSchedule($selectedTeacher, $day, $currentTime)
+    private function getSchedule($selectedTeacher, $day, $currentTime, $fullSchedule)
     {
         $output = '';
         $csvFile = getcwd() . "/admin/teacherSchedules/$selectedTeacher.csv";
@@ -31,9 +32,15 @@ class ScheduleController
                     $endTime = $scheduleData[3];
                     $classroom = $scheduleData[4];
                     
-                    if ($currentTime >= $startTime && $currentTime <= $endTime) {
-                        $output .= "$startTime-$endTime: $lesson | Sal $classroom\n";
+                    if ($fullSchedule == false) {
+                        if ($currentTime >= $startTime && $currentTime <= $endTime) {
+                            $output .= "$startTime-$endTime | $lesson | Sal $classroom";
+                        }
                     }
+                    elseif ($fullSchedule = true) {
+                        $output .= "$startTime-$endTime | $lesson | Sal $classroom<br>";
+                    }
+                    
                 }
             }
 
@@ -43,6 +50,7 @@ class ScheduleController
         }
         return $output;
     }
+
 
     private function getDayName($dayIndex)
     {

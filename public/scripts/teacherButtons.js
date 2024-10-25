@@ -57,6 +57,7 @@ function buttonClick(index) {
     updateIndex("right");
   } else {
     modal.style.display = "block";
+    const fullSchedule = false
     const teacher = buttons[index].id;
     const dayOfWeek = new Date().getDay() - 1;
     const currentTime = new Date().toLocaleTimeString([], {
@@ -65,7 +66,7 @@ function buttonClick(index) {
     });
 
     fetch(
-      `/fetch_schedule?selectedTeacher=${teacher}&dayOfWeek=${dayOfWeek}&currentTime=${currentTime}`
+      `/fetch_schedule?selectedTeacher=${teacher}&dayOfWeek=${dayOfWeek}&currentTime=${currentTime}&fullSchedule=${fullSchedule}`
     )
       .then((response) => response.text())
       .then((data) => {

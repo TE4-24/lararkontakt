@@ -79,12 +79,11 @@ body {
 
 .modal-content {
   position: relative;
-
   background-color: #fefefe;
   top: 40%;
   height: 10%;
   margin: auto;
-  border: 1px solid #888;
+  border: 3px solid #000;
   width: 85%;
   border-radius: 30px;
 }
@@ -93,13 +92,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+
   height: 100%;
-  width: 100%;
-  text-align: center;
   margin: 0;
+  
   font-weight: bolder;
-  vertical-align: middle;
   font-size: larger;
 }
 
