@@ -37,26 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function historyBack() {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    console.log("no history");
-  }
-}
-
 function buttonClick(index) {
   const buttons = document.querySelectorAll(".button");
-  var fullSchedule = true;
 
   if (buttons[index].id === "left") {
     updateIndex("left");
   } else if (buttons[index].id === "right") {
     updateIndex("right");
-  } else if ((modal.style.display = "block")) {
-    fullSchedule = false;
   } else {
     modal.style.display = "block";
+    const fullSchedule = true;
     const teacher = buttons[index].id;
     const dayOfWeek = new Date().getDay() - 1;
     const currentTime = new Date().toLocaleTimeString([], {
