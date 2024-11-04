@@ -1,14 +1,12 @@
-Ma2a,Måndag,15:00,17:00,6
-Ma2b,Måndag,8:10,09:30,6
-Ma2b,Tisdag,8:10,09:30,6
-Ma2b,Onsdag,13:25,14:45,6
-Ma2a,Tisdag,14:10,15:30,6
-Ma1a,Fredag,13:35,15:05,6
-Ma3c,Onsdag,12:00,13:20,6
-Ma3c,Fredag,9:40,11:00,6
-Ma1b,Onsdag,8:10,09:30,6
-Ma1b,Torsdag,8:10,09:30,6
-Teknik 1,Fredag,12:00,13:20,6
-Ma4,Måndag,9:40,11:00,6
-Ma4,Torsdag,13:35,14:55,6
-Ma1a,Torsdag,12:00,13:30,6
+Ma2a,Tisdag,14:00,17:00,6
+Ma2b,Måndag,8:10,09:45,6
+Ma1a,Torsdag,9:30,11:00,6
+Ma3c,Måndag,9:50,11:00,6
+Ma3c,Onsdag,8:10,09:35,6
+Ma1a,Fredag,9:30,11:00,6
+Ma4,Onsdag,12:00,13:30,6
+Ma4,Torsdag,8:10,09:25,6
+Ma4,Fredag,12:00,13:30,6
+Ma1b,Torsdag,12:00,13:20,6
+Ma1b,Tisdag,8:10,09:30,6
+Teknik 1,Fredag,13:40,15:00,6

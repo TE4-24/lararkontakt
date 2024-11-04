@@ -42,7 +42,7 @@ foreach ($lines as $i => $line) {
     if ($i > $track_row_lessons) {
         if($track_row_lessons != 0) {
             foreach ($initials as $initial) {
-                if ($line[10] == "P1" || $line[10] == ""){
+                if ($line[10] == "P2" || $line[10] == ""){
                     if (isset($line[7]) && $line[7] == $initial) {
                         if ($line[2] == "M�ndag") {
                             $line[2] = "Måndag";

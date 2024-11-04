@@ -8,7 +8,7 @@ class ScheduleController
     {
         $selectedTeacher = $_GET['selectedTeacher'] ?? 'default_teacher';
         $dayOfWeek = $_GET['dayOfWeek'] ?? (date("w") - 1);
-        $currentTime = $_GET['currentTime'] ?? date("H:i");
+        $currentTime = strtotime($_GET['currentTime'] ?? date("H:i"));
         $fullSchedule = $_GET['fullSchedule'];
 
         $schedule = $this->getSchedule($selectedTeacher, $dayOfWeek, $currentTime, $fullSchedule);
@@ -32,15 +32,14 @@ class ScheduleController
                     $endTime = $scheduleData[3];
                     $classroom = $scheduleData[4];
                     
-                    if ($fullSchedule == false) {
-                        if ($currentTime >= $startTime && $currentTime <= $endTime) {
+                    if ($fullSchedule == "true") {
+                        if ($currentTime >= strtotime($startTime) && $currentTime <= strtotime($endTime)) {
                             $output .= "$startTime-$endTime | $lesson | Sal $classroom";
                         }
                     }
-                    elseif ($fullSchedule = true) {
+                    elseif ($fullSchedule == "false") {
                         $output .= "$startTime-$endTime | $lesson | Sal $classroom<br>";
                     }
-                    
                 }
             }
 
