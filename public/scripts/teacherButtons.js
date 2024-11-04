@@ -4,83 +4,84 @@ var span = document.getElementsByClassName("close")[0];
 var larar = document.getElementById("lararschem");
 
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".button");
-    let currentFocus = 0;
+  const buttons = document.querySelectorAll(".button");
+  let currentFocus = 0;
 
-    buttons.forEach((button, index) => {
-        button.addEventListener("click", function () {
-            buttonClick(index);
-         });
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      buttonClick(index);
     });
+  });
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "A" || event.key === "a") {
-            event.preventDefault();
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "A" || event.key === "a") {
+      event.preventDefault();
 
-            currentFocus = (currentFocus + 1) % buttons.length;
-            buttons[currentFocus].focus();
-        }
-    });
+      currentFocus = (currentFocus + 1) % buttons.length;
+      buttons[currentFocus].focus();
+    }
+  });
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "B" || event.key === "b") {
-            event.preventDefault();
-            buttons[currentFocus].click();
-        }
-    });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "B" || event.key === "b") {
+      event.preventDefault();
+      buttons[currentFocus].click();
+    }
+  });
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "C" || event.key === "c") {
-            event.preventDefault();
-            modal.style.display = "none";
-        }
-    });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "C" || event.key === "c") {
+      event.preventDefault();
+      modal.style.display = "none";
+    }
+  });
 });
 
 function historyBack() {
-    if (window.history.length > 1) {
-        window.history.back();
-    } else {
-        console.log("no history");
-    }
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    console.log("no history");
+  }
 }
 
 function buttonClick(index) {
-    const buttons = document.querySelectorAll(".button");
+  const buttons = document.querySelectorAll(".button");
+  var fullSchedule = true;
 
-    if (buttons[index].id === "left") {
-        updateIndex("left");
-    } else if (buttons[index].id === "right") {
-        updateIndex("right");
-    } else {
-        modal.style.display = "block";
-        const fullSchedule = true;
-        const teacher = buttons[index].id;
-        const dayOfWeek = new Date().getDay() - 1;
-        const currentTime = new Date().toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-        });
+  if (buttons[index].id === "left") {
+    updateIndex("left");
+  } else if (buttons[index].id === "right") {
+    updateIndex("right");
+  } else if ((modal.style.display = "block")) {
+    fullSchedule = false;
+  } else {
+    modal.style.display = "block";
+    const teacher = buttons[index].id;
+    const dayOfWeek = new Date().getDay() - 1;
+    const currentTime = new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
     fetch(
-        `/fetch_schedule?selectedTeacher=${teacher}&dayOfWeek=${dayOfWeek}&currentTime=${currentTime}&fullSchedule=${fullSchedule}`
+      `/fetch_schedule?selectedTeacher=${teacher}&dayOfWeek=${dayOfWeek}&currentTime=${currentTime}&fullSchedule=${fullSchedule}`
     )
-
-    .then((response) => response.text())
-    .then((data) => {
+      .then((response) => response.text())
+      .then((data) => {
         larar.innerHTML = data;
-    });
+      });
   }
 }
 
 function updateIndex(direction) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/scripts/indexControl.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            location.reload();
-        }
-    };
-    xhr.send("direction=" + direction);
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/scripts/indexControl.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      location.reload();
+    }
+  };
+  xhr.send("direction=" + direction);
 }
