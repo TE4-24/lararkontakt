@@ -9,9 +9,8 @@ class ScheduleController
         $selectedTeacher = $_GET['selectedTeacher'] ?? 'default_teacher';
         $dayOfWeek = $_GET['dayOfWeek'] ?? (date("w") - 1);
         $currentTime = strtotime($_GET['currentTime'] ?? date("H:i"));
-        $fullSchedule = $_GET['fullSchedule'];
 
-        $schedule = $this->getSchedule($selectedTeacher, $dayOfWeek, $currentTime, $fullSchedule);
+        $schedule = $this->getSchedule($selectedTeacher, $dayOfWeek, $currentTime);
         if ($schedule != ""){
             echo $schedule;
         }
@@ -19,9 +18,10 @@ class ScheduleController
         
     }
 
-    private function getSchedule($selectedTeacher, $day, $currentTime, $fullSchedule)
+    private function getSchedule($selectedTeacher, $day, $currentTime)
     {
         $output = '';
+        $fullSchedule = "";
         $csvFile = getcwd() . "/admin/teacherSchedules/$selectedTeacher.csv";
         
         if (file_exists($csvFile) && ($csvHandle = fopen($csvFile, "r")) !== FALSE) {
@@ -31,18 +31,18 @@ class ScheduleController
                     $startTime = $scheduleData[2];
                     $endTime = $scheduleData[3];
                     $classroom = $scheduleData[4];
-                    
-                    if ($fullSchedule == "true") {
-                        if ($currentTime >= strtotime($startTime) && $currentTime <= strtotime($endTime)) {
-                            $output .= "$startTime-$endTime | $lesson | Sal $classroom";
-                        }
+
+                    if ($currentTime >= strtotime($startTime) && $currentTime <= strtotime($endTime)) {
+                        $lessonToAdd = "Current Lesson: $lesson | $startTime-$endTime | Sal $classroom<br>";
                     }
-                    elseif ($fullSchedule == "false") {
-                        $output .= "$startTime-$endTime | $lesson | Sal $classroom<br>";
+                    else {  
+                        $lessonToAdd = "$lesson | $startTime-$endTime | Sal $classroom<br>";
                     }
+
+                    $fullSchedule .= $lessonToAdd;
                 }
             }
-
+            $output = $fullSchedule;
             fclose($csvHandle);
         } else {
             $output = "unable to open csv file";
