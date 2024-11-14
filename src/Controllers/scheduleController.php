@@ -33,10 +33,10 @@ class ScheduleController
                     $classroom = $scheduleData[4];
 
                     if ($currentTime >= strtotime($startTime) && $currentTime <= strtotime($endTime)) {
-                        $lessonToAdd = "<span class='line'> Current Lesson: $lesson | $startTime-$endTime | Sal $classroom </span><br>";
+                        $lessonToAdd = "<span class='schemLine'> Current Lesson: $lesson | $startTime-$endTime | Sal $classroom </span><br>";
                     }
                     else {  
-                        $lessonToAdd = "<span class='line'>$lesson | $startTime-$endTime | Sal $classroom </span><br>";
+                        $lessonToAdd = "<span class='schemLine'>$lesson | $startTime-$endTime | Sal $classroom </span><br>";
                     }
 
                     $fullSchedule .= $lessonToAdd;

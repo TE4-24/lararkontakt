@@ -89,7 +89,7 @@ body {
 }
 
 #lararschem {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -98,6 +98,12 @@ body {
   font-family: cursive;
   font-weight: bolder;
   font-size: larger;
+}
+
+.schemLine {
+  display: block;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .close {
