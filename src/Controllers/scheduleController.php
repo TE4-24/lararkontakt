@@ -33,10 +33,10 @@ class ScheduleController
                     $classroom = $scheduleData[4];
 
                     if ($currentTime >= strtotime($startTime) && $currentTime <= strtotime($endTime)) {
-                        $lessonToAdd = "Current Lesson: $lesson | $startTime-$endTime | Sal $classroom<br>";
+                        $lessonToAdd = "<span class="line"> Current Lesson: $lesson | $startTime-$endTime | Sal $classroom</span>";
                     }
                     else {  
-                        $lessonToAdd = "$lesson | $startTime-$endTime | Sal $classroom<br>";
+                        $lessonToAdd = "<span class="line">$lesson | $startTime-$endTime | Sal $classroom</span>";
                     }
 
                     $fullSchedule .= $lessonToAdd;
@@ -51,8 +51,7 @@ class ScheduleController
     }
 
 
-    private function getDayName($dayIndex)
-    {
+    private function getDayName($dayIndex) {
         $days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
         return $days[$dayIndex] ?? 'Unknown day';
     }
