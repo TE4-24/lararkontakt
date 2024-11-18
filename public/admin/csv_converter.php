@@ -69,6 +69,9 @@ foreach ($initials as $initial) {
         continue;
     }
     $teacherLessons = fopen("teacherSchedules/" . $initial . ".csv", 'w') or die('Could not open file');
+    usort($lessons[$initial], function($a, $b) {
+        return strtotime($a['start']) - strtotime($b['start']);
+    });
     foreach ($lessons[$initial] as $lesson) {
         fwrite($teacherLessons, $lesson['lesson'] . "," . $lesson['day'] . "," . $lesson['start'] . "," . $lesson['end'] . "," . $lesson['classroom'] . "\n");
     }
