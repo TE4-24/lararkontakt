@@ -22,6 +22,11 @@ body {
   border-radius: 25%;
 }
 
+.button:focus {
+  border: 4px solid blueviolet;
+  outline: none;
+}
+
 .bildlada {
   background-color: #ddd;
 
@@ -62,6 +67,10 @@ body {
 #left {
   background: transparent;
   border: none;
+}
+#right:focus,
+#left:focus {
+  border: 4px blueviolet solid;
 }
 
 .modal {
